@@ -1,0 +1,45 @@
+## Idee: Uwe Kristmann https://rpubs.com/uwebrasil/22481, verändert.
+## eine Library, die Wrapper zur Verfügung stellt,
+## die häufig benötigte Operationen an strings durchführen.
+library(stringr)
+## Initialisierung
+## der string
+dna <- "ACGTTGCATGTCGCATGATGCATGAGAGCT"
+## Laufzeitvariable
+i <- 1
+## Das k-mer
+k <- 4
+## Die Maximalwerte
+m <- 1
+## Die Ergebnisvariable
+ret <- 1
+## Die Länge des strings
+c <- 1
+## Die Funktion
+mf_kmer <- function(dna, k)
+  (mf_kmer())
+{
+  ## Die Ergebnisvariable wird initialisiert.
+  ret <- list()
+  ## Die Länge des strings wird bestimmt.
+  c <- nchar(dna)
+  ## Schleife: beginne bei i = 1, Ende bei c-k = Länge des strings.
+  for (i in 1:c-k)
+    ## Zerhacke den string in k-mere, erzeuge eine Ergebnisva-
+    ## riable mit dem Index i.
+    ## str_sub erzeugt Abschnitte, die so lang sind, wie das 
+    ## längste Element.
+  { ret[i] = str_sub(dna,i,i+k-1) }
+  ## nimm die Rohwerte der Liste und mach sie flach (unlist), mach eine
+  ## Kontingenztabelle (table).
+  ret <- table(unlist(ret))
+  ## Sortiere diese Kontingenztabelle (sort). Kehre die Reihenfolge um
+  ret <- rev(sort(ret))
+  ## Drucke die Ergebnisse aus
+  print(ret)
+  ## wähle die Maximalwerte aus.
+  m=max(ret)
+  ## stelle die Werte als Array dar (für alle Maximalwerte (ret==m)) 
+  ret <- as.array(ret[ret==m])
+  c(rownames(ret))
+  }
